@@ -1,7 +1,8 @@
 import { loot } from "../features/loot.js";
 import { prettyNumber } from "../utils/prettyNumber.js";
 import {
-  Window, UIText, UIContainer, UIRoundedRectangle, ChildBasedMaxSizeConstraint,
+  Window, UIText, UIContainer, UIRoundedRectangle,
+  ChildBasedMaxSizeConstraint,
   SiblingConstraint, ChildBasedSizeConstraint,
   ConstantColorConstraint, AdditiveConstraint
 } from "Elementa/index";
@@ -134,10 +135,12 @@ const shadow = new UIRoundedRectangle(5)
   );
 
 const group = new UIContainer()
+  .setX(loot.x.pixels())
+  .setY(loot.y.pixels())
   .setWidth(new ChildBasedSizeConstraint())
   .setHeight(new ChildBasedSizeConstraint())
   .addChild(shadow);
 
 const window = new Window().addChild(group);
 
-export { group }
+export { group, window }

@@ -1,10 +1,9 @@
 /// <reference types="../CTAutocomplete" />
 /// <reference lib="es2015" />
 
-import { lootDetector } from "./features/loot.js";
-import { group } from "./features/lootDisplay.js";
+import { loot, lootDetector } from "./features/loot.js";
+import { group, window } from "./features/lootDisplay.js";
 import { Setting, SettingsObject } from "../SettingsManager/SettingsManager";
-
 
 const settings = new SettingsObject(
   "GiftLoot",
@@ -14,8 +13,9 @@ const settings = new SettingsObject(
       settings: [
         new Setting.Toggle("Enabled", false),
         new Setting.Slider("Scale", 1, 0.5, 1.5, 3),
-        new Setting.Slider("X", Renderer.screen.getWidth() / 2, 0, Renderer.screen.getWidth()),
-        new Setting.Slider("Y", Renderer.screen.getHeight() / 2, 0, Renderer.screen.getHeight()),
+        new Setting.Button("Edit Location", "Click here!", () => {
+          ChatLib.command("movegiftgui", true);
+        })
       ]
     }
   ]
@@ -23,20 +23,30 @@ const settings = new SettingsObject(
 settings.setCommand("gift");
 Setting.register(settings);
 
-register("chat", lootDetector).setCriteria("${rarity}! ${item} gift with ${*}!");
+register("chat", lootDetector).setCriteria("${rarity}! ${item} gift with ${*}!"); // only works on ct load right now
 
 register("renderOverlay", () => {
-  if (!settings.getSetting("Settings", "Enabled")) return;
+  //const scale = settings.getSetting("Settings", "Scale");
 
-  group.draw();
+  if (!settings.getSetting("Settings", "Enabled")) return;
+  window.draw();
+
+  // TODO
+  // add scale somehow
 });
 
-register("tick", () => {
-  const x = settings.getSetting("Settings", "X");
-  const y = settings.getSetting("Settings", "Y");
-  const scale = settings.getSetting("Settings", "Scale");
+const gui = new Gui();
+register("command", () => {
+  if (!settings.getSetting("Settings", "Enabled")) return;
+  gui.open()
+}).setName("movegiftgui");
+
+
+gui.registerMouseDragged((mouseX, mouseY) => {
+  loot.x = mouseX;
+  loot.y = mouseY;
 
   group
-    .setX(parseInt(x).pixels())
-    .setY(parseInt(y).pixels());
-})
+    .setX(mouseX.pixels())
+    .setY(mouseY.pixels());
+});

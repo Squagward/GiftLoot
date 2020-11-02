@@ -1,6 +1,6 @@
 {
-    "totalGifts": 80,
-    "coins": 33000,
+    "totalGifts": 83,
+    "coins": 33200,
     "alchemyXP": 0,
     "combatXP": 250,
     "enchantingXP": 100,
@@ -18,8 +18,10 @@
     "snowmen": 0,
     "goldenGifts": 0,
     "krampusHelm": 0,
-    "commons": 66,
+    "commons": 67,
     "rares": 12,
-    "sweets": 2,
-    "santas": 0
+    "sweets": 4,
+    "santas": 0,
+    "x": 4,
+    "y": 4
 }

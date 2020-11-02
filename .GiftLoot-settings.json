@@ -11,28 +11,17 @@
       {
         "type": "slider",
         "name": "Scale",
-        "value": "1.019",
+        "value": 1,
         "min": 0.5,
         "max": 1.5,
         "round": 3,
         "hidden": false
       },
       {
-        "type": "slider",
-        "name": "X",
-        "value": "41",
-        "min": 0,
-        "max": 640,
-        "round": 0,
-        "hidden": false
-      },
-      {
-        "type": "slider",
-        "name": "Y",
-        "value": "10",
-        "min": 0,
-        "max": 334,
-        "round": 0,
+        "type": "button",
+        "name": "Edit Location",
+        "text": "Click here!",
+        "method": "/Function(\n() => {\n    ChatLib.command(\"movegiftgui\", true);\n}\n)/",
         "hidden": false
       }
     ]

@@ -31,6 +31,9 @@ const loot = new PVObject("GiftLoot", {
   rares: 0,
   sweets: 0,
   santas: 0,
+
+  x: 0,
+  y: 0,
 });
 
 function lootDetector(rarity, item) {
