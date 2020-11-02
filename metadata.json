@@ -1,8 +1,8 @@
 {
   "name": "GiftLoot",
   "creator": "Squagward",
-  "description": "Adds a display for loot from presents. /present to open the settings gui.",
-  "helpMessage": "\n/present to open the settings gui\n",
+  "description": "Adds a display for loot from presents. /gift to open the settings gui.",
+  "helpMessage": "\n/gift to open the settings gui\n",
   "version": "1.0.0",
   "entry": "index.js",
   "requires": [
