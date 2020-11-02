@@ -1,1 +1,2 @@
-*.json
+.GiftLoot-settings.json
+.persistantData.json
