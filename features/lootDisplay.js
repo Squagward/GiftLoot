@@ -101,7 +101,6 @@ const line23 = new UIText(`§l${prettyNumber(Math.round(loot.totalGifts / loot.s
   .setX((5).pixels())
   .setY(new SiblingConstraint());
 
-
 const shadow = new UIRoundedRectangle(5)
   .setX((0).pixels())
   .setY((0).pixels())
@@ -143,4 +142,29 @@ const group = new UIContainer()
 
 const window = new Window().addChild(group);
 
-export { group, window }
+function updateDisplay() {
+  line1.setText(`§3Alchemy XP: ${prettyNumber(loot.alchemyXP)}`);
+  line2.setText(`§3Enchanting XP: ${prettyNumber(loot.enchantingXP)}`);
+  line3.setText(`§3Farming XP: ${prettyNumber(loot.farmingXP)}`);
+  line4.setText(`§3Foraging XP: ${prettyNumber(loot.foragingXP)}`);
+  line5.setText(`§3Mining XP: ${prettyNumber(loot.miningXP)}`);
+  line6.setText(`§9Luck VI: ${prettyNumber(loot.luck)}`);
+  line7.setText(`§9Scavenger IV: ${prettyNumber(loot.scav)}`);
+  line8.setText(`§9Looting IV: ${prettyNumber(loot.looting)}`);
+  line9.setText(`§5Snow Suit Pieces: ${prettyNumber(loot.snowSuit)}`);
+  line10.setText(`§cGift the Fish: ${prettyNumber(loot.giftTheFishes)}`);
+  line11.setText(`§6Snowman Pets: ${prettyNumber(loot.snowmen)}`);
+  line13.setText(`§cGolden Gifts: ${prettyNumber(loot.goldenGifts)}`);
+  line14.setText(`§cKrampus Helmets: ${prettyNumber(loot.krampusHelm)}`);
+  line15.setText(`§3Potions: ${prettyNumber(loot.pots)}`);
+  line16.setText(`§e§lSnow Minions: ${prettyNumber(loot.snowMinions)}`);
+  line17.setText(`§e§lTotal Coins: ${prettyNumber(loot.coins)}`);
+  line18.setText(`§lCommon Drops: ${prettyNumber(loot.commons)}`);
+  line19.setText(`§9§lRare Drops: ${prettyNumber(loot.rares)}`);
+  line20.setText(`§e§lSweet Drops: ${prettyNumber(loot.sweets)}`);
+  line21.setText(`§c§lSanta Drops: ${prettyNumber(loot.santas)}`);
+  line22.setText(`§lTotal Gifts: ${prettyNumber(loot.totalGifts)}`);
+  line23.setText(`§l${prettyNumber(Math.round(loot.totalGifts / loot.snowMinions * 10) / 10)} Gifts / Snow Minion`);
+}
+
+export { window, group, shadow, updateDisplay }
