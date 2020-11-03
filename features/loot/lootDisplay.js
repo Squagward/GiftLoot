@@ -1,5 +1,5 @@
-import { loot } from "../features/loot.js";
-import { prettyNumber } from "../utils/prettyNumber.js";
+import { loot } from "./loot.js";
+import { prettyNumber } from "../../utils/prettyNumber.js";
 import {
   Window, UIText, UIContainer, UIRoundedRectangle,
   ChildBasedMaxSizeConstraint,
@@ -108,29 +108,12 @@ const shadow = new UIRoundedRectangle(5)
   .setHeight(new AdditiveConstraint(new ChildBasedSizeConstraint(), (10).pixels()))
   .setColor(new ConstantColorConstraint(new Color(0 / 255, 0 / 255, 0 / 255, 100 / 255)))
   .addChildren(
-    line1,
-    line2,
-    line3,
-    line4,
-    line5,
-    line6,
-    line7,
-    line8,
-    line9,
-    line10,
-    line11,
-    line12,
-    line13,
-    line14,
-    line15,
-    line16,
-    line17,
-    line18,
-    line19,
-    line20,
-    line21,
-    line22,
-    line23
+    line1, line2, line3, line4,
+    line5, line6, line7, line8,
+    line9, line10, line11, line12,
+    line13, line14, line15, line16,
+    line17, line18, line19, line20,
+    line21, line22, line23
   );
 
 const group = new UIContainer()
