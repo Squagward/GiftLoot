@@ -106,7 +106,7 @@ const shadow = new UIRoundedRectangle(5)
   .setY((0).pixels())
   .setWidth(new AdditiveConstraint(new ChildBasedMaxSizeConstraint(), (10).pixels()))
   .setHeight(new AdditiveConstraint(new ChildBasedSizeConstraint(), (10).pixels()))
-  .setColor(new ConstantColorConstraint(new Color(0, 0, 0, .35)))
+  .setColor(new ConstantColorConstraint(new Color(0 / 255, 0 / 255, 0 / 255, 100 / 255)))
   .addChildren(
     line1,
     line2,
