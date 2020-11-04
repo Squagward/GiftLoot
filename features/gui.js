@@ -7,8 +7,20 @@ const Color = Java.type("java.awt.Color");
 const gui = new Gui();
 
 function moveGiftGui() {
-  if (settings.getSetting("Settings", "Enabled")) gui.open();
+  if (settings.getSetting("Settings", "Enabled"))
+    gui.open();
 }
+
+register("renderOverlay", () => {
+  if (gui.isOpen())
+    Renderer.drawRect(
+      Renderer.color(0, 0, 0, 70),
+      0,
+      0,
+      Renderer.screen.getWidth(),
+      Renderer.screen.getHeight()
+    );
+});
 
 let isSelected = false;
 
@@ -27,13 +39,25 @@ function clickFunc(mouseX, mouseY) {
     mouseY > loot.y && mouseY < loot.y + group.getHeight()
   ) {
     isSelected = true;
-    shadow.setColor(new ConstantColorConstraint(new Color(96 / 255, 242 / 255, 12 / 255, 200 / 255)));
+    shadow.setColor(
+      new ConstantColorConstraint(
+        new Color(96 / 255, 242 / 255, 12 / 255, 200 / 255)
+      )
+    );
   }
 }
 
 function releaseFunc() {
   isSelected = false;
-  shadow.setColor(new ConstantColorConstraint(new Color(0 / 255, 0 / 255, 0 / 255, 100 / 255)));
+  shadow.setColor(
+    new ConstantColorConstraint(
+      new Color(0 / 255, 0 / 255, 0 / 255, 100 / 255)
+    )
+  );
 }
 
-export { gui, moveGiftGui, dragFunc, clickFunc, releaseFunc }
+gui.registerMouseDragged(dragFunc);
+gui.registerClicked(clickFunc);
+gui.registerMouseReleased(releaseFunc);
+
+export { moveGiftGui }
