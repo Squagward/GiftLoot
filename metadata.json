@@ -3,7 +3,7 @@
   "creator": "Squagward",
   "description": "Adds a display for loot from gifts. /gift to open the settings gui.",
   "helpMessage": "\n/gift to open the settings gui\n",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "entry": "index.js",
   "requires": [
     "SettingsManager",
