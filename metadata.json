@@ -2,8 +2,8 @@
   "name": "GiftLoot",
   "creator": "Squagward",
   "description": "Adds a display for loot from gifts. /gift to open the settings gui.",
-  "helpMessage": "\n/gift to open the settings gui\n",
-  "version": "0.1.0",
+  "helpMessage": "&b&m--------------------------\n&3Thank you for downloading!\n§9§lGift§b§lLoot &rby Squagward\n\n/gift &7to open the settings gui\n\n&7If you find any bugs or just want to know what's going on, join my Discord!\n&7Type &r/giftdc &7or open it through the settings menu.\n&b&m--------------------------",
+  "version": "1.0.0",
   "entry": "index.js",
   "requires": [
     "SettingsManager",

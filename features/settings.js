@@ -7,10 +7,14 @@ export const settings = new SettingsObject(
       name: "Settings",
       settings: [
         new Setting.Toggle("Enabled", false),
-        new Setting.Slider("Scale", 1, 0.25, 2.5, 3),
+        new Setting.Slider("Scale", 1, 0, 5, 3),
         new Setting.Button("Edit Location", "Click here!", () => {
           ChatLib.command("movegiftgui", true);
         }),
+        new Setting.Button("Discord", "Click here!", () => {
+          ChatLib.command("giftdc", true);
+          Client.setCurrentChatMessage("");
+        })
       ]
     },
     {
@@ -31,9 +35,6 @@ export const settings = new SettingsObject(
   ]
 )
   .setCommand("gift")
-  .setSize(
-    Renderer.screen.getWidth() / 3,
-    Renderer.screen.getHeight() * 2 / 3
-  );
+  .setSize(200, 170);
 
 Setting.register(settings);
