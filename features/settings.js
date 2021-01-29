@@ -13,7 +13,7 @@ export const settings = new SettingsObject(
         }),
         new Setting.Button("Discord", "Click here!", () => {
           ChatLib.command("giftdc", true);
-          Client.setCurrentChatMessage("");
+          Client.currentGui.close();
         })
       ]
     },
